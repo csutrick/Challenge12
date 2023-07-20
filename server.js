@@ -74,15 +74,39 @@ function initialPrompt() {
 
 //Function to view departments
 function viewDepartments() {
-    console.log("v dep");
+    let option = "SELECT * FROM department";
+
+    db.query(option, function (err, res) {
+        if (err) throw err;
+        console.log("Viewing departments")
+        console.table(res);
+    });
+    console.log("Select next option")
+    initialPrompt();
 };
 // Function to view roles
 function viewRoles() {
-    console.log("v role");
+    let option = "SELECT * FROM role";
+
+    db.query(option, function (err, res) {
+        if (err) throw err;
+        console.log("Viewing roles")
+        console.table(res);
+    });
+    console.log("Select next option")
+    initialPrompt();
 };
 // Function to view employees
 function viewEmployees() {
-    console.log("v empl");
+    let option = "SELECT * FROM employee";
+
+    db.query(option, function (err, res) {
+        if (err) throw err;
+        console.log("Viewing employees")
+        console.table(res);
+    });
+    console.log("Select next option")
+    initialPrompt();
 };
 // Function to add departments
 function addDepartments() {
