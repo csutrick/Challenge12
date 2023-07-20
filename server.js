@@ -68,7 +68,7 @@ function initialPrompt() {
                 }
                 });
             break;
-        }
+        };
     });
 };
 
@@ -76,41 +76,49 @@ function initialPrompt() {
 function viewDepartments() {
     let option = "SELECT * FROM department";
 
-    db.query(option, function (err, res) {
+    db.query(option, function(err, res) {
         if (err) throw err;
         console.log("Viewing departments")
         console.table(res);
+        initialPrompt();
     });
-    console.log("Select next option")
-    initialPrompt();
 };
 // Function to view roles
 function viewRoles() {
     let option = "SELECT * FROM role";
 
-    db.query(option, function (err, res) {
+    db.query(option, function(err, res) {
         if (err) throw err;
         console.log("Viewing roles")
         console.table(res);
+        initialPrompt();
     });
-    console.log("Select next option")
-    initialPrompt();
 };
 // Function to view employees
 function viewEmployees() {
     let option = "SELECT * FROM employee";
 
-    db.query(option, function (err, res) {
+    db.query(option, function(err, res) {
         if (err) throw err;
         console.log("Viewing employees")
         console.table(res);
+        initialPrompt();
     });
-    console.log("Select next option")
-    initialPrompt();
 };
 // Function to add departments
 function addDepartments() {
-    console.log("add dep");
+    inquirer.prompt({
+        type: "input",
+        message: "Name of new department?",
+        name: "departmentName"
+    })
+    .then(function(answer){
+        db.query("INSERT INTO department (name) VALUES (?)", [answer.departmentName], function(err, res) {
+            if (err) throw err;
+            console.table(res);
+            initialPrompt();
+        });
+    });
 };
 // Function to add roles
 function addRoles() {
