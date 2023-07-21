@@ -109,7 +109,7 @@ function viewEmployees() {
 function addDepartments() {
     inquirer.prompt({
         type: "input",
-        message: "Name of new department?",
+        message: "Enter name of new department?",
         name: "departmentName"
     })
     .then(function(answer){
@@ -122,7 +122,30 @@ function addDepartments() {
 };
 // Function to add roles
 function addRoles() {
-    console.log("add role");
+    inquirer.prompt([
+    {
+        type: "input",
+        message: "Enter name of new role?",
+        name: "roleName"
+    },
+    {
+        type: "input",
+        message: "Enter hourly pay of new role?",
+        name: "roleWage"
+    },
+    {
+        type: "input",
+        message: "Enter department id number?",
+        name: "departmentID"
+    }
+    ])
+    .then(function(answer){
+        db.query("INSERT INTO role (title, hrWage, department_id) VALUES (?, ?, ?)", [answer.roleName, answer.roleWage, answer.departmentID], function(err, res) {
+            if (err) throw err;
+            console.table(res);
+            initialPrompt();
+        });
+    });
 };
 // Function to add employees
 function addEmployees() {

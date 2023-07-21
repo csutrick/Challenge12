@@ -9,7 +9,7 @@ INSERT INTO role (title, hrWage, department_id)
 VALUES ("Checkout clerk", 18, 1),
 ("Grocery bagging", 17, 2),
 ("Stocks items", 20, 3),
-("Oversees individual departments", 23, 4),
+("Oversees departments", 23, 4),
 ("Incharge of all departments", 31, 5);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
