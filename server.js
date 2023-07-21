@@ -6,8 +6,8 @@ const db = mysql.createConnection(
     {
       host: 'localhost',
       user: 'root',
-      // REMOVE PASSWORD AND COMMENT
-      password: 'crsejs11',
+      
+      password: '',
       database: 'Employee_MngDB'
     },
     console.log(`Connected to the Employee_MngDB database.`),
