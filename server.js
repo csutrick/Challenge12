@@ -149,5 +149,33 @@ function addRoles() {
 };
 // Function to add employees
 function addEmployees() {
-    console.log("add empl");
+    inquirer.prompt([
+    {
+        type: "input",
+        message: "Enter employee first name?",
+        name: "firstName"
+    },
+    {
+        type: "input",
+        message: "Enter employee last name?",
+        name: "lastName"
+    },
+    {
+        type: "input",
+        message: "Enter role id for employee?",
+        name: "roleID"
+    },
+    {
+        type: "input",
+        message: "Enter manager id number?",
+        name: "managerID"
+    }
+    ])
+    .then(function(answer){
+        db.query("INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)", [answer.firstName, answer.lastName, answer.roleID, answer.managerID], function(err, res) {
+            if (err) throw err;
+            console.table(res);
+            initialPrompt();
+        });
+    });
 };
