@@ -2,6 +2,9 @@
 
 ## Description
 
+Video walkthrough:
+https://drive.google.com/file/d/1MbqVrd8Ri9DySBpMFfIGacG6PmMFhrQS/view 
+
 This command line appilcation was created to help stores manage there employees. You can veiw your departments, roles within the store, employees, while viewing roles and who reports to who. I think this assignment was prety straight forward. However in the end i struggled with jsut laying out the basic layout, and figuring out the switch statement.
 
 ## Installation
